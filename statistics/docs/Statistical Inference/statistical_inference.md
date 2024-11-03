@@ -13,6 +13,6 @@ Before we delve into answering the above question, let's go over a few defintion
 
 |          | Parameter | Statistic |
 | :---------------- | :------: | ----: |
-| Mean       |   $\mu$  | 23.99 |  \bar{X} |
-| Variance          |   $\sigma^{2}$   | $S^{2}$|
-| Standard Deviation   |   $\sigma#  | $S$ |
+| Mean       |   $\mu$  | \bar{x} |
+| Variance          |   $\sigma^{2}$   | $s^{2}$|
+| Standard Deviation   |   $\sigma$  | $s$ |
