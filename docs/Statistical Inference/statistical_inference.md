@@ -1,8 +1,10 @@
 # Statistical Inference
 
-Statistical Inference is the process of drawing general conclusions about the population using insights gained from a sample.
+Statistical Inference is the process of drawing general conclusions about the population based on insights gathered from a sample. Often, when studying a population, collecting information from every individual is impractical or impossible. Thus, we rely on analyzing smaller samples and make informed inferences on the entire population. 
 
-The main question that we'd want to answer is exactly how reliable is the information that we gain from a sample? 
+The field of Statistics is built on the question:
+
+- How reliable are the conclusions drawn from a sample? 
 
 Before we delve into answering the above question, let's go over a few defintions. 
 
