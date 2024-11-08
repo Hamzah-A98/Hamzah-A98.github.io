@@ -15,6 +15,6 @@ Before we delve into answering the above question, let's go over a few defintion
 
 |          | Parameter | Statistic |
 | :---------------- | :------: | ----: |
-| Mean       |   $\mu$  | \bar{x} |
+| Mean       |   $\mu$  | $\bar{x}$ |
 | Variance          |   $\sigma^{2}$   | $s^{2}$|
 | Standard Deviation   |   $\sigma$  | $s$ |
