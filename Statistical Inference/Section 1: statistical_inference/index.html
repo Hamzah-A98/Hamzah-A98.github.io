@@ -13,7 +13,7 @@
       <script>
         // Current page data
         var mkdocs_page_name = "Statistical Inference";
-        var mkdocs_page_input_path = "Statistical Inference/statistical_inference.md";
+        var mkdocs_page_input_path = "Statistical Inference/Section 1: statistical_inference.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -45,13 +45,11 @@
               </ul>
               <p class="caption"><span class="caption-text">Statistical Inference</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../confidence_intervals/">Confidence Intervals</a>
-                  </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Statistical Inference</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#parameter-vs-statistic">Parameter vs Statistic</a>
-    </li>
     </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Section%202%3A%20confidence_intervals/">Confidence Intervals</a>
                   </li>
               </ul>
       </div>
@@ -79,13 +77,15 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="statistical-inference">Statistical Inference</h1>
-<p>Statistical Inference is the process of drawing general conclusions about the population based on insights gathered from a sample. Often, when studying a population, collecting information from every individual is impractical or impossible. Thus, we rely on analyzing smaller samples and make informed inferences on the entire population. </p>
+<p>Statistical Inference is the process of drawing general conclusions about the population based on insights gathered from a sample. Often, when studying a population, collecting information from every individual is impractical or impossible. Thus, we rely on analyzing smaller samples to make informed inferences on the entire population. </p>
 <p>The field of Statistics is built on the question:</p>
 <ul>
-<li>How reliable are the conclusions drawn from a sample? </li>
+<li>How reliable are the conclusions drawn from a sample?</li>
 </ul>
 <p>Before we delve into answering the above question, let's go over a few defintions. </p>
-<h3 id="parameter-vs-statistic">Parameter vs Statistic</h3>
+<p>
+<script type="math/tex">\large{\textbf{Parameter vs Statistic}}</script>
+</p>
 <ul>
 <li>parameter: a number that summarizes entire population data.</li>
 <li>statistic: a number that summarizes sample data.</li>
@@ -128,11 +128,30 @@
 </tr>
 </tbody>
 </table>
+<p>In other words, we use <script type="math/tex">\bar{X}</script> to estimate <script type="math/tex">\mu</script>, <script type="math/tex">s^{2}</script> to estimate <script type="math/tex">\sigma^{2}</script>, and so on. </p>
+<p>
+<script type="math/tex">\large{\textbf{Example}}</script>
+</p>
+<p>Suppose you were interested in the number of hours Rowan students spendy studying per day. You take a random sample of n=100 students and find the average time they spend studying is <script type="math/tex">\bar{x} = 3.2</script> hours. </p>
+<ul>
+<li>Population of interest: Rowan students</li>
+<li>Parameter of interest: average time all Rowan students spendy studing per day. </li>
+</ul>
+<p>We use <script type="math/tex">\bar{x} = 3.2</script> as our best of <script type="math/tex">\mu</script>. </p>
+<p>Note: <script type="math/tex">\bar{X}</script> is a random variable (unknown until observed) and thus will vary from sample to sample. The randomness in <script type="math/tex">\bar{X}</script> is in how the sample was obtained. The population parameter, however, is generally thought of as a fixed value. </p>
+<p>The variability of the sample mean can be studied usings its sampling distribution. The most famous theorem in the field of Statistics is the <script type="math/tex">\textbf{Central Limit Theorem}</script> which describes the shape of the distribution of <script type="math/tex">\bar{X}</script>. CLT is tied to normality and under <script type="math/tex">\textit{certain conditions}</script>, <script type="math/tex">\bar{X}</script>'s distribution is well approximated by a normal curve.</p>
+<p>
+<script type="math/tex">\large{\textbf{Central Limit Theorem}}</script>
+</p>
+<p>The variability of the sample mean can be studied usings its sampling distribution. The most famous theorem in the field of Statistics is the <script type="math/tex">\textbf{Central Limit Theorem}</script> which describes the shape of the distribution of <script type="math/tex">\bar{X}</script>. CLT is tied to normality and under <script type="math/tex">\textit{certain conditions}</script>, <script type="math/tex">\bar{X}</script>'s distribution is well approximated by a normal curve.</p>
+<p>Without going into too much of the theory, the CLT essentially states that <script type="math/tex">\bar{X} \sim N(\mu, \frac{\sigma^{2}}{n})</script>. </p>
+<p>A general rule of thumb for the CLT to hold is <script type="math/tex">n \geq 30</script>. However, it is much more complex than that. In other words, there is no single number that suffices for all applications. If the underlying distribution from which you are sampling is itself normal, then the CLT holds for all sample sizes since the linear combination of indepedent normally distributed random variables is normal. It is reasonable to suggest that the further the population distribution deviates from normality, the larger the sample size required to ensure that the sampling distribution of the mean approaches normality.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../confidence_intervals/" class="btn btn-neutral float-left" title="Confidence Intervals"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../.." class="btn btn-neutral float-left" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Section%202%3A%20confidence_intervals/" class="btn btn-neutral float-right" title="Confidence Intervals">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -155,8 +174,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../confidence_intervals/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../.." style="color: #fcfcfc">&laquo; Previous</a></span>
     
+    
+      <span><a href="../Section%202%3A%20confidence_intervals/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
