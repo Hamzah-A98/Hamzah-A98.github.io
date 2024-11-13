@@ -1,0 +1,47 @@
+# Statistical Inference
+
+Statistical Inference is the process of drawing general conclusions about the population based on insights gathered from a sample. Often, when studying a population, collecting information from every individual is impractical or impossible. Thus, we rely on analyzing smaller samples to make informed inferences on the entire population. 
+
+The field of Statistics is built on the question:
+
+- How reliable are the conclusions drawn from a sample?
+
+Before we delve into answering the above question, let's go over a few defintions. 
+
+$\large{\textbf{Parameter vs Statistic}}$
+
+
+- parameter: a number that summarizes entire population data.
+- statistic: a number that summarizes sample data.
+
+|          | Parameter | Statistic |
+| :---------------- | :------: | ----: |
+| Mean       |   $\mu$  | $\bar{x}$ |
+| Variance          |   $\sigma^{2}$   | $s^{2}$|
+| Standard Deviation   |   $\sigma$  | $s$ |
+
+In other words, we use $\bar{X}$ to estimate $\mu$, $s^{2}$ to estimate $\sigma^{2}$, and so on. 
+
+$\large{\textbf{Example}}$
+
+Suppose you were interested in the number of hours Rowan students spendy studying per day. You take a random sample of n=100 students and find the average time they spend studying is $\bar{x} = 3.2$ hours. 
+
+- Population of interest: Rowan students
+- Parameter of interest: average time all Rowan students spendy studing per day. 
+
+We use $\bar{x} = 3.2$ as our best of $\mu$. 
+
+Note: $\bar{X}$ is a random variable (unknown until observed) and thus will vary from sample to sample. The randomness in $\bar{X}$ is in how the sample was obtained. The population parameter, however, is generally thought of as a fixed value. 
+
+The variability of the sample mean can be studied usings its sampling distribution. The most famous theorem in the field of Statistics is the $\textbf{Central Limit Theorem}$ which describes the shape of the distribution of $\bar{X}$. CLT is tied to normality and under $\textit{certain conditions}$, $\bar{X}$'s distribution is well approximated by a normal curve.
+
+$\large{\textbf{Central Limit Theorem}}$
+
+The variability of the sample mean can be studied usings its sampling distribution. The most famous theorem in the field of Statistics is the $\textbf{Central Limit Theorem}$ which describes the shape of the distribution of $\bar{X}$. CLT is tied to normality and under $\textit{certain conditions}$, $\bar{X}$'s distribution is well approximated by a normal curve.
+
+Without going into too much of the theory, the CLT essentially states that $\bar{X} \sim N(\mu, \frac{\sigma^{2}}{n})$. 
+
+A general rule of thumb for the CLT to hold is $n \geq 30$. However, it is much more complex than that. In other words, there is no single number that suffices for all applications. If the underlying distribution from which you are sampling is itself normal, then the CLT holds for all sample sizes since the linear combination of indepedent normally distributed random variables is normal. It is reasonable to suggest that the further the population distribution deviates from normality, the larger the sample size required to ensure that the sampling distribution of the mean approaches normality.
+
+
+

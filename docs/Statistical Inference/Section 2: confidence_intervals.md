@@ -1,3 +1,1 @@
 # Confidence Intervals
-
-e
