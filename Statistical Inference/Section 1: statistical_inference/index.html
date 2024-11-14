@@ -180,6 +180,21 @@ plt.show()
 </code></pre>
 <p><img alt="" src="../images/Figure_1.png" /></p>
 <p>In theory, <script type="math/tex">E[\overline{X}] = 10</script> and <script type="math/tex">Var[\overline{X}] = .2</script>. The results we simulated match with the theory. </p>
+<p>Naturally, the next question to tackle is how does the sample size affect the sampling distribution of <script type="math/tex">\overline{X}</script>? We would expect two things to happen: </p>
+<p>
+<script type="math/tex">\textbf{1}</script>. <script type="math/tex">\lim_{n\to\infty}\overline{X} = \mu</script>. In fact, for <script type="math/tex">\epsilon > 0</script>, 
+<script type="math/tex; mode=display">
+\displaystyle{\lim_{n\to\infty}} P(|\overline{X_{n}} - \mu| < \epsilon) = 1
+    </script>
+That is to say, <script type="math/tex">\overline{X_{n}}</script> converges in probability to <script type="math/tex">\mu</script>
+<br>
+<br>
+<script type="math/tex">\textbf{2}</script>. It is clear that <script type="math/tex">Var[\overline{X}] = \frac{\sigma^{2}}{n} \to 0</script> as <script type="math/tex">n \to \infty</script>. That is, as we increase our sample isze, we would expect the sampling distribution to be less spread out since there is less uncertainty in our estimates of <script type="math/tex">\mu</script>. </p>
+<p>Note: <script type="math/tex">\sqrt{Var[\overline{X}]} = \frac{\sigma}{\sqrt{n}}</script> is referred to as the standard error. The term <script type="math/tex">\textit{standard error}</script> is used because <script type="math/tex">\overline{X}</script> is treated as an estimator and we want to know the uncertainty or the error in the estimator. <script type="math/tex">\overline{X}</script> is essentially treated as a surrogate for <script type="math/tex">\mu</script>
+</p>
+<p>Let's investigate this using code!</p>
+<p><img alt="" src="../images/clt_se.png" /></p>
+<p>Clearly, the uncertainty in our estimates of <script type="math/tex">\mu</script> decreases as <script type="math/tex">n</script> increases. </p>
               
             </div>
           </div><footer>
