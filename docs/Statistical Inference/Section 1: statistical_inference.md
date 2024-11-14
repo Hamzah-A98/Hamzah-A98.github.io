@@ -82,3 +82,22 @@ plt.show()
 ![](images/Figure_1.png)
 
 In theory, $E[\overline{X}] = 10$ and $Var[\overline{X}] = .2$. The results we simulated match with the theory. 
+
+Naturally, the next question to tackle is how does the sample size affect the sampling distribution of $\overline{X}$? We would expect two things to happen: 
+
+$\textbf{1}$. $\lim_{n\to\infty}\overline{X} = \mu$. In fact, for $\epsilon > 0$, 
+\[
+\displaystyle{\lim_{n\to\infty}} P(|\overline{X_{n}} - \mu| < \epsilon) = 1
+    \]
+That is to say, $\overline{X_{n}}$ converges in probability to $\mu$
+<br>
+<br>
+$\textbf{2}$. It is clear that $Var[\overline{X}] = \frac{\sigma^{2}}{n} \to 0$ as $n \to \infty$. That is, as we increase our sample isze, we would expect the sampling distribution to be less spread out since there is less uncertainty in our estimates of $\mu$. 
+
+Note: $\sqrt{Var[\overline{X}]} = \frac{\sigma}{\sqrt{n}}$ is referred to as the standard error. The term $\textit{standard error}$ is used because $\overline{X}$ is treated as an estimator and we want to know the uncertainty or the error in the estimator. $\overline{X}$ is essentially treated as a surrogate for $\mu$
+
+Let's investigate this using code!
+
+![](images/clt_se.png)
+
+Clearly, the uncertainty in our estimates of $\mu$ decreases as $n$ increases. 
