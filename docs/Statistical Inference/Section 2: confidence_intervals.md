@@ -21,7 +21,7 @@ Let $P(Z > z_{\frac{\alpha}{2}}) = \frac{\alpha}{2}$ and note:
 \end{aligned}
 \end{equation}
 
-![](images/clt_int.png)
+![](images/clt_int2.png)
 
 
 $\large{\textbf{Case I}}$:
