@@ -58,3 +58,20 @@ Interpretation: With 95% confidence, we estimate that the mean height of all Row
 Note: from the sample we found $\overline{x} = 67$ inches. Using CI, we're saying we're 95% confident that $\mu$ is somewhere between 65.4 and 68.58.
 
 $\textit{Limitation}$ of Z Confidence Interval: $\sigma$ is unlikely to be known. 
+
+
+$\large{\textbf{Case I (σ is unknown)}}$:
+
+Since $\sigma^{2}$ in unlikely to be known to the practitioner, we are often limited to $s^{2}$. The quantity 
+\[ 
+    \frac{\overline{X} - \mu}{s/\sqrt{n}}
+    \]
+does not follow a normal distribution. Rather, it follows a *t-distribution* with $n-1$ degrees of freedom. For smaller sample sizes, the t-distribution has heavier tails than the normal distribution and thus we expect more extreme values. However, as the degrees of freedom approach infinity, the t-distribution converges to the normal distribution. 
+
+<u>**CI when σ is unknown**</u>
+
+Let $X_{1}, ..., X_{n}$ be a random sample from a population with mean $\mu$ and unknown variance $\sigma^{2}$, a $100(1-\alpha)%$ CI for $\mu$ is given by: 
+\[ 
+    \overline{x} \pm t_{\frac{\alpha}{2}, n-1} \frac{s}{\sqrt{n}}
+    \]
+where $t_{\frac{\alpha}{2}, n-1}$ depends on both sample size and confidence level. 
