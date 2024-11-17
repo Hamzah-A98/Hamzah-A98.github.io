@@ -86,7 +86,7 @@
 <p>
 <script type="math/tex; mode=display"> \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \sim N(0, 1)</script>
 </p>
-<p>Here, <script type="math/tex">Z = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}}</script> is a random variable whose distribution does not depend on <script type="math/tex">\mu</script> or <script type="math/tex">\sigma</script>. This is referred to as a pivotal quantity. </p>
+<p>Here, <script type="math/tex">Z = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}}</script> is a standard normal random variable whose distribution does not depend on <script type="math/tex">\mu</script> or <script type="math/tex">\sigma</script>. This is referred to as a pivotal quantity. </p>
 <p>Let <script type="math/tex">P(Z > z_{\frac{\alpha}{2}}) = \frac{\alpha}{2}</script> and note: </p>
 <p>
 <script type="math/tex; mode=display">\begin{equation}
@@ -131,7 +131,7 @@ where the value of <script type="math/tex">z_{\frac{\alpha}{2}}</script> depends
 </p>
 <p>In a random sample of 75 Rowan students, the mean height was found to be 67 inches. Assuming the population standard deviation is 7 inches, construct a 95% confidence interval for the mean height of all Rowan students.</p>
 <p><mark>Solution</mark></p>
-<p>We have <script type="math/tex">\overline{x} = 67</script>, <script type="math/tex">\sigma = 7</script>, <script type="math/tex">n=75</script>, <script type="math/tex">z_{\frac{\alpha}{2}}</script>. Therefore, a 95% CI for <script type="math/tex">\mu</script> is:</p>
+<p>We have <script type="math/tex">\overline{x} = 67</script>, <script type="math/tex">\sigma = 7</script>, <script type="math/tex">n=75</script>, <script type="math/tex">z_{\frac{\alpha}{2}} = 1.96</script>. Therefore, a 95% CI for <script type="math/tex">\mu</script> is:</p>
 <p>
 <script type="math/tex; mode=display">\begin{equation}
 \begin{aligned}
@@ -144,6 +144,19 @@ where the value of <script type="math/tex">z_{\frac{\alpha}{2}}</script> depends
 <p>Note: from the sample we found <script type="math/tex">\overline{x} = 67</script> inches. Using CI, we're saying we're 95% confident that <script type="math/tex">\mu</script> is somewhere between 65.4 and 68.58.</p>
 <p>
 <script type="math/tex">\textit{Limitation}</script> of Z Confidence Interval: <script type="math/tex">\sigma</script> is unlikely to be known. </p>
+<p>
+<script type="math/tex">\large{\textbf{Case I (σ is unknown)}}</script>:</p>
+<p>Since <script type="math/tex">\sigma^{2}</script> in unlikely to be known to the practitioner, we are often limited to <script type="math/tex">s^{2}</script>. The quantity 
+<script type="math/tex; mode=display"> 
+    \frac{\overline{X} - \mu}{s/\sqrt{n}}
+    </script>
+does not follow a normal distribution. Rather, it follows a <em>t-distribution</em> with <script type="math/tex">n-1</script> degrees of freedom. For smaller sample sizes, the t-distribution has heavier tails than the normal distribution and thus we expect more extreme values. However, as the degrees of freedom approach infinity, the t-distribution converges to the normal distribution. </p>
+<p><u><strong>CI when σ is unknown</strong></u></p>
+<p>Let <script type="math/tex">X_{1}, ..., X_{n}</script> be a random sample from a population with mean <script type="math/tex">\mu</script> and unknown variance <script type="math/tex">\sigma^{2}</script>, a <script type="math/tex">100(1-\alpha)%</script> CI for <script type="math/tex">\mu</script> is given by: 
+<script type="math/tex; mode=display"> 
+    \overline{x} \pm t_{\frac{\alpha}{2}, n-1} \frac{s}{\sqrt{n}}
+    </script>
+where <script type="math/tex">t_{\frac{\alpha}{2}, n-1}</script> depends on both sample size and confidence level. </p>
               
             </div>
           </div><footer>
