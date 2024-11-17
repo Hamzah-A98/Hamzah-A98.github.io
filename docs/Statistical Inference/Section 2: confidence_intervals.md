@@ -44,7 +44,7 @@ In a random sample of 75 Rowan students, the mean height was found to be 67 inch
 
 <mark>Solution</mark>
 
-We have $\overline{x} = 67$, $\sigma = 7$, $n=75$, $z_{\frac{\alpha}{2}}$. Therefore, a 95% CI for $\mu$ is:
+We have $\overline{x} = 67$, $\sigma = 7$, $n=75$, $z_{\frac{\alpha}{2}} = 1.96$. Therefore, a 95% CI for $\mu$ is:
 
 \begin{equation}
 \begin{aligned}
