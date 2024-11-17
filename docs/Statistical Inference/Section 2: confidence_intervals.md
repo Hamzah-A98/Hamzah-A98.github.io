@@ -9,7 +9,7 @@ Based on our distribution result, we can standardize \eqref{clt}:
 
 $$ \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \sim N(0, 1)$$
 
-Here, $Z = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}}$ is a random variable whose distribution does not depend on $\mu$ or $\sigma$. This is referred to as a pivotal quantity. 
+Here, $Z = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}}$ is a standard normal random variable whose distribution does not depend on $\mu$ or $\sigma$. This is referred to as a pivotal quantity. 
 
 Let $P(Z > z_{\frac{\alpha}{2}}) = \frac{\alpha}{2}$ and note: 
 
