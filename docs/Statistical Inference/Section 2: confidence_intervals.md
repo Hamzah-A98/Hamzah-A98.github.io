@@ -74,4 +74,16 @@ Let $X_{1}, ..., X_{n}$ be a random sample from a population with mean $\mu$ and
 \[ 
     \overline{x} \pm t_{\frac{\alpha}{2}, n-1} \frac{s}{\sqrt{n}}
     \]
-where $t_{\frac{\alpha}{2}, n-1}$ depends on both sample size and confidence level. 
+where $t_{\frac{\alpha}{2}, n-1}$ depends on both sample size and confidence level.  
+
+
+$\large{\textbf{CI Coverage}}$
+
+The correct interpretation of a Confidence Interval is as follows: With $100(1-\alpha)\%$ confidence, we estimate that $\mu$ is somewhere between L and U. Using the word $probability$ is not correct when it comes to interpreting these intervals. For example, if $\mu = 73$ and we calculate a $95\%$ confidence interval: (65, 72). There isn't a 95 percent chance that 73 is in the interval! It is a yes/no question. 
+
+Rather, if we were to calculate 100 different $100(1-\alpha)\%$ confidence intervals for $\mu$ using 100 different samples of the sample size from the same population, we would expect $100(1-\alpha)$ of them to contain the parameter $\mu$. 
+
+We will investigate this using the below density functions and a range of different sample sizes. The greater the deviation of the population distribution from normality, the larger the sample size needed to achieve the desired confidence level.
+
+![](images/modified_density_functions.png)
+
