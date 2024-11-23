@@ -91,7 +91,7 @@ Here are the results from a simulation where a sample of size $n$ is drawn from 
 
 ![](images/coverage.png){ width="500" height="300" style="display: block; margin: 0 auto" }
 
-Invoking the CLT for smaller sizes from non-normal distributions is tricky. As displayed in this simulation, we may very well be advertising a certain confidence level that is not realized. For instance, with a sample size of $n=10$ from an exponential distribution, the coverage percentage is merely $87\%$ though we advertised $95\%$. It is important to recognize that the Central Limit Theorem is based on 'Large Sample' theory, meaning the distribution of $\bar{X}$ is well approximated by a normal distribution for 'large' sample sizes. Below is a helpful visual further investigating the coverage percentage for an exponentially distributed population. 
+Invoking the CLT for smaller samples from non-normal distributions is tricky. As displayed in this simulation, we may very well be advertising a certain confidence level that is not realized. For instance, with a sample size of $n=10$ from an exponential distribution, the coverage percentage is merely $87\%$ though we advertised $95\%$. It is important to recognize that the Central Limit Theorem is based on 'Large Sample' theory, meaning the distribution of $\bar{X}$ is well approximated by a normal distribution for 'large' sample sizes. Below is a helpful visual further investigating the coverage percentage for an exponentially distributed population. 
 
 ![](images/exp_coverage.png){ width="500" height="300" style="display: block; margin: 0 auto" }
 
