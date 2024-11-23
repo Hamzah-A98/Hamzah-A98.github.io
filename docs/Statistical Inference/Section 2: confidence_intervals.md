@@ -83,7 +83,40 @@ The correct interpretation of a Confidence Interval is as follows: With $100(1-\
 
 Rather, if we were to calculate 100 different $100(1-\alpha)\%$ confidence intervals for $\mu$ using 100 different samples of the sample size from the same population, we would expect $100(1-\alpha)$ of them to contain the parameter $\mu$. 
 
-We will investigate this using the below density functions and a range of different sample sizes. The greater the deviation of the population distribution from normality, the larger the sample size needed to achieve the desired confidence level.
+We will investigate this using the below density functions and a range of different sample sizes. It is safe to say that the greater the deviation of the population distribution from normality, the larger the sample size needed to achieve the desired confidence level.
 
 ![](images/modified_density_functions.png)
 
+Here are the results from a simulation where a sample of size $n$ is drawn from each distribution, and a confidence interval is constructed. After constructing the Confidence Interval, we verify whether it contains the parameter $\mu$. This process is repeated $1,000$ times for each sample size and distribution combination, allowing us to compute the coverage percentage. It's important to note that since this is a simulation, the value of $\mu$ is known, which would not typically be the case in real-world scenarios.
+
+![](images/coverage.png){ width="500" height="300" style="display: block; margin: 0 auto" }
+
+Invoking the CLT for smaller sizes from non-normal distributions is tricky. As displayed in this simulation, we may very well be advertising a certain confidence level that is not realized. For instance, with a sample size of $n=10$ from an exponential distribution, the coverage percentage is merely $87\%$ though we advertised $95\%$. It is important to recognize that the Central Limit Theorem is based on 'Large Sample' theory, meaning the distribution of $\bar{X}$ is well approximated by a normal distribution for 'large' sample sizes. Below is a helpful visual further investigating the coverage percentage for an exponentially distributed population. 
+
+![](images/exp_coverage.png){ width="500" height="300" style="display: block; margin: 0 auto" }
+
+
+$\large{\textbf{CI for Smaller Sample Sizes}}$
+
+We observed above that for $n=10$, the coverage probability of our CI for an exponentially distributed population was < $90\%$. Please note the following: 
+
+If $X_{1}, X_{2}, ..., X_{n}$ are $iid$ $exponential(\lambda)$, then $\sum X_{i} \sim Gamma(n, \lambda)$. Thus $\frac{2\bar{X}}{\lambda} \sim Gamma(n, \frac{2}{n})$  is a pivotal quantity since its distribution does not depend on the parameter $\lambda$. It follows that 
+
+\[ 
+    1 - \alpha = P(a \leq \frac{2\bar{X}}{\lambda} \leq b)
+    \]
+where $a, b$ are $Gamma(n, \frac{2}{n})$ critical values such that $P(X < a) = 0.025$ and $P(X > b) = .025$. A $95\%$ CI for $\lambda$ is therefore 
+
+\[
+0.95 = P(\frac{2\bar{X}}{b} \leq \lambda \leq \frac{2\bar{X}}{a})
+\]
+
+Below are results using this construction. 
+
+![](images/exact_exp.png){ width="500" height="300" style="display: block; margin: 0 auto" }
+
+
+We demonstrate its reliability primarily for smaller sample sizes, as these are the cases where invoking the Central Limit Theorem is more uncertain. Two things to note: 
+
+- $Gamma(\alpha, \beta) \rightarrow N(\alpha\beta, \alpha\beta^{2})$ as $\alpha$ -> $\infty$. In our case, $\alpha$ is the sample size. 
+- This construction may not be too useful in practice since we likely won't be able to reliably judge the distribution of the population from which we sampled. Especially for small sample sizes. 
