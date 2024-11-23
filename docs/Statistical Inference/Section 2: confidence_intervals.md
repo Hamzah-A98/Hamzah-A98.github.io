@@ -97,7 +97,7 @@ Invoking the Central Limit Theorem (CLT) for smaller samples from non-normal dis
 ![](images/exp_coverage.png){ width="500" height="300" style="display: block; margin: 0 auto" }
 
 
-$\large{\textbf{CI for Smaller Sample Sizes}}$
+$\large{\textbf{Exact CI for Smaller Sample Sizes}}$
 
 We observed above that for $n=10$, the coverage probability of our CI for an exponentially distributed population was < $90\%$. Please note the following: 
 
