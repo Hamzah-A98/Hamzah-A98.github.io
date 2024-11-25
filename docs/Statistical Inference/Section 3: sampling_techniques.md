@@ -47,7 +47,7 @@ plt.show()
 ![](images/inverse_cdf.png)
 
 
-### 1. &nbsp; Accept-Reject
+### 2. &nbsp; Accept-Reject
 
 The Inverse-CDF method is limited since it requires the CDF (if it exists) to be invertible. Another method that we can use to generate random samples is the Accept-Reject. Although not sample-efficient, it only requires knowledge of the PDF.
 
