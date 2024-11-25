@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Sampling Techniques - Hamzah Abdulrazzaq</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../site/css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Sampling Techniques";
+        var mkdocs_page_input_path = "Statistical Inference/Section 3: sampling_techniques.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Hamzah Abdulrazzaq
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Introduction</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Statistical Inference</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../Section%201%3A%20statistical_inference/">Statistical Inference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Section%202%3A%20confidence_intervals/">Confidence Intervals</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Sampling Techniques</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-inverse-cdf">1. &nbsp; Inverse CDF</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-accept-reject">2. &nbsp; Accept-Reject</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Hamzah Abdulrazzaq</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Statistical Inference</li>
+      <li class="breadcrumb-item active">Sampling Techniques</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="sampling-techniques">Sampling Techniques</h1>
+<h3 id="1-inverse-cdf">1. &nbsp; Inverse CDF</h3>
+<p><strong>Definition</strong>: Let <script type="math/tex">Y \sim f_{Y}(y)</script> with CDF <script type="math/tex">F_{Y}(y)</script>. If <script type="math/tex">F(y)</script> is a valid CDF and is injective, then <script type="math/tex">y_{i} = F^{-1}(u_{i}) \sim f_{Y}(y)</script> where <script type="math/tex">u_{i} \sim Uniform(0, 1)</script>
+</p>
+<p>
+<script type="math/tex">\underline{\textbf{Example}}</script> Suppose we wish to generate <script type="math/tex">X_{1},..., X_{n} \sim exponential(\beta)</script>. </p>
+<p>
+<script type="math/tex">f(x) = \frac{1}{\beta}e^{-\frac{x}{\beta}}\mathbb{1}_{(0, \infty)}(x)</script> and <script type="math/tex">F_{X}(x) = 1 - e^{-\frac{x}{\beta}}\mathbb{1}_{(0, \infty)}(x)</script>
+</p>
+<p>Cleary, <script type="math/tex">F_{X}(x)</script> is injective and thus we have <script type="math/tex">F^{-1}(x) = -\beta ln(1-x)</script>. </p>
+<p><mark>Algorithm </mark></p>
+<ol>
+<li>Draw <script type="math/tex">u_{i} \sim Unif(0, 1)</script>
+</li>
+<li>Let <script type="math/tex">x_{i} = F_{X}^{-1}(u_{i})</script>
+</li>
+</ol>
+<p>Repeat until desired sample size is reached.</p>
+<pre><code class="language-Python">import numpy as np
+import matplotlib.pyplot as plt 
+import seaborn as sns
+
+
+def inverse_exp_cdf(u_i, beta):
+    return -beta*np.log(1-u_i)[0]
+
+desired_sample_size = 10000
+
+# list to store our simulated samples
+samples = []
+
+for iter in range(desired_sample_size):
+    u_i = np.random.uniform(0, 1, size=1)
+    x_i = inverse_exp_cdf(u_i, beta=1)
+    samples.append(x_i)
+
+
+plt.figure(figsize=(10, 5))
+sns.set_style('darkgrid')
+sns.histplot(samples)
+plt.show()
+</code></pre>
+<p><img alt="" src="../images/inverse_cdf.png" /></p>
+<h3 id="2-accept-reject">2. &nbsp; Accept-Reject</h3>
+<p>The Inverse-CDF method is limited since it requires the CDF (if it exists) to be invertible. Another method that we can use to generate random samples is the Accept-Reject. Although not sample-efficient, it only requires knowledge of the PDF.</p>
+<p><strong>Definition</strong>: Let <script type="math/tex">Y \sim f_{Y}(y)</script> defined over the interval <script type="math/tex">(a, b)</script> and suppose there exists <script type="math/tex">h(x)</script> that is close to <script type="math/tex">f(y)</script> such that there exists a constant <script type="math/tex">M \in \mathrm {R^{+}}</script>
+<script type="math/tex">\ni</script>
+<script type="math/tex">f(y) \leq Mh(y) \hspace{2mm} \forall \hspace{1mm}y</script>
+</p>
+<p>In other words, we can obtain samples of <script type="math/tex">f(y)</script> through <script type="math/tex">h(x)</script>. </p>
+<p><mark>Algorithm </mark></p>
+<ol>
+<li>Draw <script type="math/tex">X \sim Uniform(a, b)</script>, <script type="math/tex">Z \sim Uniform(0, M)</script>
+</li>
+<li>If <script type="math/tex">z_{i} < f(x_{i})</script>, accept <script type="math/tex">x_{i}</script>. Otherwise reject. </li>
+</ol>
+<p>Note: <script type="math/tex">M = \displaystyle\max_{y \in (a,b)} f(y)</script>. </p>
+<p>Below is a helpful visual to understand the acceptance criteria. 
+<img alt="" src="../images/accept_reject.png" /></p>
+<p>
+<script type="math/tex">\underline{\textbf{Example}}</script>
+</p>
+<p>Suppose we wish to sample from 
+<script type="math/tex; mode=display">f(x) = \begin{cases} 
+ x & \text{if $0 < x < 1$} \\  
+ 2-x & \text{if $1 \leq x < 2$} \\  
+ 0 & \text{elsewhere}  
+ \end{cases} 
+</script>
+</p>
+<pre><code class="language-Python">import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Our triangular density function
+def desired_density(x):
+    if 0 &lt; x &lt; 2:
+        return x / 4
+    if 2 &lt; x &lt; 4:
+        return 1 - x / 4
+    else:
+        return 0
+
+
+sample_sizes = [200, 500, 1000, 50000]
+x_bounds = (0, 4)
+x_min, x_max = x_bounds
+
+# Compute M 
+x_values = np.linspace(x_min, x_max, 1000)
+y_values = [desired_density(x) for x in x_values]
+M = np.max(y_values)
+
+# Create subplots
+fig, axes = plt.subplots(2, 2, figsize=(12, 10))
+axes = axes.flatten()
+sns.set_style('darkgrid')
+# loop through each sample size and apply the algorithm
+for idx, desired_sample_size in enumerate(sample_sizes):
+    samples = []
+    tries = 0
+
+    # Generate samples
+    while len(samples) &lt; desired_sample_size:
+        tries += 1
+        z_i = np.random.uniform(0, M)
+        x_i = np.random.uniform(x_min, x_max)
+        if z_i &lt; desired_density(x_i):
+            samples.append(x_i)
+
+    # Plot hist
+    sns.set_style('darkgrid')
+    sns.histplot(samples, kde=True, ax=axes[idx])
+    efficiency = desired_sample_size / tries
+    axes[idx].set_title(f&quot;Sample Size: {desired_sample_size}, Efficiency: {efficiency:.3f}&quot;, fontsize=12)
+    axes[idx].set_xlabel(&quot;x&quot;)
+    axes[idx].set_ylabel(&quot;Density&quot;)
+
+
+plt.tight_layout()
+plt.savefig('accept_reject_sim.png')
+plt.show()
+</code></pre>
+<p><img alt="" src="../images/accept_r.png" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Section%202%3A%20confidence_intervals/" class="btn btn-neutral float-left" title="Confidence Intervals"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Section%202%3A%20confidence_intervals/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
