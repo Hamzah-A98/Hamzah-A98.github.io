@@ -70,8 +70,8 @@ $\underline{\textbf{Example}}$
 
 Suppose we wish to sample from 
 \[f(x) = \begin{cases} 
- x & \text{if $0 < x < 1$} \\  
- 2-x & \text{if $1 \leq x < 2$} \\  
+ \frac{x}{4} & \text{if $0 < x < 2$} \\  
+ 1 - \frac{x}{4} & \text{if $2 \leq x < 4$} \\  
  0 & \text{elsewhere}  
  \end{cases} 
 \]
